@@ -27,7 +27,6 @@ lotr_gender
 
 #Compute Number of Words Method 1 Untidy
 words_per_film <- lotr_gender %>%
-  group_by(Film) %>%
   summarise(
     Words_Elf = sum(Elf),
     Words_Hobbit = sum(Hobbit),
@@ -39,7 +38,7 @@ words_per_film
 #Compute Number of Words Method 2 Tidy
 lotr_tidy
 by_race_film <- lotr_tidy %>%
-    group_by(Film, Race) %>%
+    group_by(Race) %>%
   summarize(Words = sum(Words))
 by_race_film
 
