@@ -1,32 +1,30 @@
 library(nycflights13)
 glimpse(flights)
-
 flights
 
 #2.1
 
-a <- flights %>%
+flights_delay <- flights %>%
   group_by(dest) %>%
   summarize(delay = mean(arr_delay, na.rm = TRUE))
-a
+flights_delay
 
-b <- left_join(flights, a, by = "dest")
-b
+flights_joined <- left_join(flights, flights_delay, by = "dest")
+flights_joined
 
-c <- airports %>% rename(dest = faa)
-c
+renamed_airports <- airports %>% rename(dest = faa)
+renamed_airports
 
-d <- left_join(b, c, by = "dest")
-d
+flights_airports <- left_join(flights_joined, renamed_airports, by = "dest")
+flights_airports
 
-d %>%
+flights_airports %>%
   ggplot(aes(lon, lat, color=delay)) +
   borders("state") +
   geom_point() +
   coord_quickmap()
 
 #2.2
-
 flights_new <- flights %>%
   left_join(airports,c("dest" = "faa")) %>%
   rename(lat_dest = lat, long_dest = lon) %>%
@@ -53,10 +51,10 @@ flights %>% group_by(tailnum) %>%
 # 1218 flights
 
 #3.2
-# anti_join(flights, airports, by = c("dest" = "faa")) would drop all
+# anti_join(flights, airports, by = c("dest" = "faa")) would return all
 # observations in flights that don't have an observation in airport.
 
-# anti_join(airports, flights, by = c("faa" = "dest")) would drop all
+# anti_join(airports, flights, by = c("faa" = "dest")) would return all
 # observations in airports that don't have an observation in flights.
 
 
