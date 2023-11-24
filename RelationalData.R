@@ -46,7 +46,18 @@ delay %>% ggplot(aes(age, dep_delay)) +
   geom_smooth()
 
 
+#3.1
+flights %>% group_by(tailnum) %>%
+  summarize(abundance = n()) %>%
+  filter(abundance >= 100)
+# 1218 flights
 
+#3.2
+# anti_join(flights, airports, by = c("dest" = "faa")) would drop all
+# observations in flights that don't have an observation in airport.
+
+# anti_join(airports, flights, by = c("faa" = "dest")) would drop all
+# observations in airports that don't have an observation in flights.
 
 
 
