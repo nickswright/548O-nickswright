@@ -35,5 +35,6 @@ grep("abc|abd", strings, value = TRUE)
 gsub("(ab) 12", "\\1 34", strings)
 
 #Exercise 2
+grep(".R$", dir(), value = TRUE)
 
 
