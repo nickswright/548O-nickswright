@@ -32,9 +32,32 @@ grep("ab[^c]", strings, value = TRUE)
 grep("^ab", strings, value = TRUE)
 grep("\\^ab", strings, value = TRUE)
 grep("abc|abd", strings, value = TRUE)
+
 gsub("(ab) 12", "\\1 34", strings)
 
 #Exercise 2
 grep(".R$", dir(), value = TRUE)
+
+#Exercise 3
+i_t <- grep("i|t|I|T", gDat$country, value = TRUE)
+i_t
+land <- unique(grep("land$", i_t, value = TRUE))
+land
+LAND <- gsub("land", "LAND", land)
+LAND
+
+#General modes for patterns
+(strings <- c("Axbc", "A.bc"))
+pattern <- "A.b"
+grep(pattern, strings, value = TRUE)
+grep(pattern, strings, value = TRUE, fixed = TRUE)
+
+pattern <- "a.b"
+grep(pattern, strings, value = TRUE)
+grep(pattern, strings, value = TRUE, ignore.case = TRUE)
+
+
+#Exercise 4
+unique(grep("o", gDat$continent, value = TRUE, ignore.case = TRUE))
 
 
