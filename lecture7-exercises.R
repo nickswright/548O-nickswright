@@ -24,17 +24,6 @@ get_mass_from_length <- function(a, length, b) {
 
 sauropoda <- get_mass_from_length(214.44, 26, 1.46) ; sauropoda
 
-#Default arguments
-calc_shrub_vol <- function(length = 1, width = 1, height = 1) {
-  volume <- length * width * height
-  return(volume)
-}
-
-calc_shrub_vol()
-calc_shrub_vol(width = 2)
-calc_shrub_vol(0.8, 1.6, 2.0)
-calc_shrub_vol(height = 2.0, length = 0.8, width = 1.6)
-
 #Exercise 3
 
 #Function with
