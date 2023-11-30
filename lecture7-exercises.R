@@ -41,7 +41,7 @@ kg_to_lb <-function(x) {
   return(lb)
 }
 
-stegosaurus <- get_mass_from_length(10.95, length = 12, 2.64)
+stegosaurus <- get_mass_from_length(10.95, length = 12, 2.64) ; stegosaurus
 stegosaurus_lb <- kg_to_lb(stegosaurus) ; stegosaurus_lb
 
 
