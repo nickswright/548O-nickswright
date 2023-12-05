@@ -10,3 +10,23 @@ if (age_class == "sapling"){
   y <- 10
 }
 y
+
+#Exercise 3
+age_class = "seedling"
+if (age_class == "sapling") {
+  y <- 10
+} else if (age_class == "seedling") {
+  y <- 5
+}
+y
+
+age_class = "adult"
+if (age_class == "sapling") {
+  y <- 10
+} else if (age_class == "seedling") {
+  y <- 5
+}else {
+  y <- 0
+}
+y
+
